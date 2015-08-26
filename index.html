@@ -3,7 +3,13 @@
 <head>
     <meta charset="utf-8" />
     <title>Pong javascript game using Phaser and free art</title>
-    <script src="js/phaser.min.js"></script>
+    <script src="assets/js/phaser.min.js"></script>
+    <script src = "assets/js/pong_boot.js"> </script>
+    <script src = "assets/js/pong_load.js"> </script>
+    <script src = "assets/js/pong_menu.js"> </script>
+    <script src = "assets/js/pong_play.js"> </script>
+    <script src = "assets/js/pong_gameover.js"> </script>
+    <script src = "assets/js/pong_settings.js"> </script>
     <style>
     	canvas { 
             background: #eee; 
@@ -13,10 +19,7 @@
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <canvas id="myCanvas" width="800" height="600">
-        </canvas>
-    </div>
-    <script src="assets/js/pong.js" type="application/javascript"></script>
+    <div id="gamveDiv"> </div>
+    <script src="assets/js/pong_game.js" type="application/javascript"></script>
 </body>
 </html>
