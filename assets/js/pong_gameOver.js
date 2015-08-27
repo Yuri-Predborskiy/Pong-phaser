@@ -19,7 +19,7 @@ var gameOverState = {
         var wkey = game.input.keyboard.addKey(Phaser.Keyboard.W);
         
         // when player preses W, call restart function
-        wkey.okDown.addOnce(this.restart, this);
+        wkey.onDown.addOnce(this.restart, this);
     },
     
     // the restart function calls the menu state

@@ -13,11 +13,11 @@ var gameHeight = 600;
 var textStyleNormal = { font: '25px Arial', fill: '#ffffff' };
 var textStyleHeader = { font: '50px Arial', fill: '#ffffff' };
 var textStyleWin = { font: '50px Arial', fill: '#00FF00' };
-var plStartX = 20;
-var plStartY = gameHeight/2;
+var playerLeftStartX = 20;
+var playerLeftStartY = gameHeight/2;
 
-var prStartX = gameWidth-20;
-var prStartY = gameHeight/2;
+var playerRightStartX = gameWidth-20;
+var playerRightStartY = gameHeight/2;
 
 var game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO, 'gameDiv');
 

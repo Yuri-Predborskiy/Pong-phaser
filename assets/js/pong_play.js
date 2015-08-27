@@ -11,12 +11,12 @@ var playState = {
         this.keyboard = game.input.keyboard;
 
         // create the player sprite and enable physics
-        this.pl = game.add.sprite(plStartX, plStartY, 'paddleBlue');
-        game.physics.enable(this.pl, Phaser.Physics.ARCADE);
+        this.playerLeft = game.add.sprite(playerLeftStartX, playerLeftStartY, 'paddleBlue');
+        game.physics.enable(this.playerLeft, Phaser.Physics.ARCADE);
 
         // create the win sprite and enable physics
-        this.pr = game.add.sprite(prStartX, prStartY, 'paddleRed');
-        game.physics.enable(this.pr, Phaser.Physics.ARCADE);
+        this.playerRight = game.add.sprite(playerRightStartX, playerRightStartY, 'paddleRed');
+        game.physics.enable(this.playerRight, Phaser.Physics.ARCADE);
     },
 
     // Update
@@ -30,30 +30,30 @@ var playState = {
         // when the player sprite and win sprite overlap, the Win function
         // is called (notice that the Win function is capitalized while
         // the win sprite is not)
-        game.physics.arcade.overlap(this.player, this.win, this.Win, null, this);
+        game.physics.arcade.overlap(this.playerLeft, this.playerRight, this.gameOver, null, this);
 
         // finally, we give the human player a means of moving
         // the "player" sprite (WASD to move)
         // enabling movement along the X axis
         if(this.keyboard.isDown(Phaser.Keyboard.A)) {
-            this.player.body.velocity.x = -175;
+            this.playerLeft.body.velocity.x = -175;
         } else if(this.keyboard.isDown(Phaser.Keyboard.D)) {
-            this.player.body.velocity.x = 175;
+            this.playerLeft.body.velocity.x = 175;
         } else {
-            this.player.body.velocity.x = 0;
+            this.playerLeft.body.velocity.x = 0;
         }
         // enabling movement along Y axis
         if(this.keyboard.isDown(Phaser.Keyboard.W)) {
-            this.player.body.velocity.y = -175;
+            this.playerLeft.body.velocity.y = -175;
         } else if(this.keyboard.isDown(Phaser.Keyboard.S)) {
-            this.player.body.velocity.y = 175;
+            this.playerLeft.body.velocity.y = 175;
         } else {
-            this.player.body.velocity.y = 0;
+            this.playerLeft.body.velocity.y = 0;
         }
     },
 
-    win: function() {
+    gameOver: function() {
         // we start the win state
-        game.state.start('win');
+        game.state.start('gameOver');
     }
 };
