@@ -6,7 +6,7 @@
 //    to reference "restarting" the game
 // 3. instead of calling the Play state, we call Menu state
 
-var winState = {
+var gameOverState = {
     create: function() {
         var winLabel = game.add.text(80, 80, "YOU WON!", textStyleWin);
         

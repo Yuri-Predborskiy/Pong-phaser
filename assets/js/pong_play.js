@@ -11,12 +11,12 @@ var playState = {
         this.keyboard = game.input.keyboard;
 
         // create the player sprite and enable physics
-        this.player = game.add.sprite(playerStartX, playerStartY, 'paddleBlue');
-        game.physics.enable(this.player, Phaser.Physics.ARCADE);
+        this.pl = game.add.sprite(plStartX, plStartY, 'paddleBlue');
+        game.physics.enable(this.pl, Phaser.Physics.ARCADE);
 
         // create the win sprite and enable physics
-        this.win = game.add.sprite(winStartX, winStartY, 'paddleRed');
-        game.physics.enable(this.win, Phaser.Physics.ARCADE);
+        this.pr = game.add.sprite(prStartX, prStartY, 'paddleRed');
+        game.physics.enable(this.pr, Phaser.Physics.ARCADE);
     },
 
     // Update

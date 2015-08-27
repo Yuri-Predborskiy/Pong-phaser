@@ -6,7 +6,20 @@ Just like the index.html file, the game.js file is rather simple. It performs th
 3.Starts the boot state
 First two parameters are integers, X and Y size of the game canvas. I'm using 800x600 pixels as optimal (in my personal opinion) size for this kind of game in horizontal orientation. The last parameter is the name of div on HTML page, which will have the game attached to it.
 */
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'gameDiv');
+
+var gameWidth = 800;
+var gameHeight = 600;
+
+var textStyleNormal = { font: '25px Arial', fill: '#ffffff' };
+var textStyleHeader = { font: '50px Arial', fill: '#ffffff' };
+var textStyleWin = { font: '50px Arial', fill: '#00FF00' };
+var plStartX = 20;
+var plStartY = gameHeight/2;
+
+var prStartX = gameWidth-20;
+var prStartY = gameHeight/2;
+
+var game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO, 'gameDiv');
 
 // adding states of the game, first is "casual" name of the state, second is "official" name of the state
 game.state.add("boot", bootState);
