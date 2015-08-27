@@ -10,8 +10,9 @@ var loadState = {
         // load all assets. The first parameter is the variable that
         // will point to the image, and the second parameter is the
         // image file itself
-        game.load.image('paddleBlue', 'assets/img/paddleBlu.png')
-        game.load.image('paddleRed', 'assets/img/paddleRed.png')
+        game.load.image('paddleBlue', 'assets/img/paddleBlu.png');
+        game.load.image('paddleRed', 'assets/img/paddleRed.png');
+        game.load.image('ball', 'assets/img/ballGrey.png');
         
     },
     

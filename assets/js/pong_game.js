@@ -19,6 +19,9 @@ var playerLeftStartY = gameHeight/2;
 var playerRightStartX = gameWidth-20;
 var playerRightStartY = gameHeight/2;
 
+var ballVelocityX = 150; // pixels per second
+var ballVelocityY = 150; 
+
 var game = new Phaser.Game(gameWidth, gameHeight, Phaser.AUTO, 'gameDiv');
 
 // adding states of the game, first is "casual" name of the state, second is "official" name of the state
