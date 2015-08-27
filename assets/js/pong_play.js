@@ -13,10 +13,12 @@ var playState = {
         // create the player sprite and enable physics
         this.playerLeft = game.add.sprite(playerLeftStartX, playerLeftStartY, 'paddleBlue');
         game.physics.enable(this.playerLeft, Phaser.Physics.ARCADE);
+        this.playerLeft.anchor.set(0.5,0.5);
 
         // create the win sprite and enable physics
         this.playerRight = game.add.sprite(playerRightStartX, playerRightStartY, 'paddleRed');
         game.physics.enable(this.playerRight, Phaser.Physics.ARCADE);
+        this.playerRight.anchor.set(0.5,0.5);
     },
 
     // Update
