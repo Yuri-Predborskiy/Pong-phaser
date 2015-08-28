@@ -28,6 +28,9 @@ var playState = {
         this.ball.anchor.set(0.5,0.5);
         this.ball.body.collideWorldBounds = true;
         this.ball.body.bounce.set(1);
+        this.ball.body.velocity.set(150,150);
+        game.physics.arcade.checkCollision.left = false;
+        game.physics.arcade.checkCollision.right = false;
         
     },
 
@@ -66,10 +69,33 @@ var playState = {
         game.physics.arcade.collide(this.ball, this.playerLeft);
         game.physics.arcade.collide(this.ball, this.playerRight);
 
+        this.ball.checkWorldBounds = true;
+        this.ball.events.onOutOfBounds.add(ballLeaveScreen, this);
     },
+    
+//    ballLeaveScreen: function () {
+//        if(this.ball.x<0) {
+//            console.log("Right player: SCORE!");
+//        } else {
+//            console.log("Left player: SCORE!");
+//        }
+//        this.ball.reset(game.width/2, game.height/2);
+//    },
     
     gameOver: function() {
         // we start the win state
         game.state.start('gameOver');
     }
 };
+
+function ballLeaveScreen() {
+    if(this.ball.x<0) {
+        console.log("Right player: SCORE!");
+        scoreLeft += 1;
+    } else if(this.ball.x > game.width){
+        console.log("Left player: SCORE!");
+        scoreRight += 1;
+    }
+    this.ball.reset(game.width/2, game.height/2);
+    this.ball.body.velocity.set(150,150);
+}
