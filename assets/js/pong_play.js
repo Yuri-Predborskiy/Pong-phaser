@@ -9,6 +9,7 @@ var playState = {
         // prepare the keyboard so that the human player can move
         // the player sprite around
         this.keyboard = game.input.keyboard;
+        this.cursors = game.input.keyboard.createCursorKeys();
 
         // create the player sprite and enable physics
         this.playerLeft = game.add.sprite(playerLeftStartX, playerLeftStartY, 'paddleBlue');
@@ -44,15 +45,23 @@ var playState = {
         game.physics.arcade.overlap(this.playerLeft, this.playerRight, this.gameOver, null, this);
 
         // enabling moving up and down
-        var upVel = 0;
-        var downVel = 0;
+        var velocityLeft = 0;
         if(this.keyboard.isDown(Phaser.Keyboard.W)) {
-            upVel = -175;
+            velocityLeft += -paddleSpeed;
         }
         if(this.keyboard.isDown(Phaser.Keyboard.S)) {
-            downVel = 175;
+            velocityLeft += paddleSpeed;
         }
-        this.playerLeft.body.velocity.y = upVel + downVel;
+        this.playerLeft.body.velocity.y = velocityLeft;
+
+        var velocityRight = 0;
+        if(this.cursors.up.isDown) {
+            velocityRight += -paddleSpeed;
+        }
+        if(this.cursors.down.isDown) {
+            velocityRight += paddleSpeed;
+        }
+        this.playerRight.body.velocity.y = velocityRight;
         
         game.physics.arcade.collide(this.ball, this.playerLeft);
         game.physics.arcade.collide(this.ball, this.playerRight);
